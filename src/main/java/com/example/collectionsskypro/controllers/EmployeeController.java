@@ -1,11 +1,13 @@
 package com.example.collectionsskypro.controllers;
 
+import com.example.collectionsskypro.data.Employee;
 import com.example.collectionsskypro.services.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Set;
 
 @RestController
@@ -23,23 +25,25 @@ public class EmployeeController {
         return "Welcome to the project!";
     }
     @GetMapping("/add")
-    public boolean addEmployee(@RequestParam("firstName") String firstName,
-                               @RequestParam("lastName") String lastName){
-
-        return employeeService.addEmployee(firstName, lastName);
+    public Employee addEmployee(@RequestParam("firstName") String firstName,
+                                @RequestParam("lastName") String lastName){
+        Employee addEmployee = employeeService.addEmployee(firstName, lastName);
+        return addEmployee;
     }
     @GetMapping("/remove")
-    public boolean removeEmployee(@RequestParam("firstName") String firstName,
+    public Employee removeEmployee(@RequestParam("firstName") String firstName,
                                   @RequestParam("lastName") String lastName){
-        return employeeService.removeEmployee(firstName, lastName);
+        Employee removeEmployee = employeeService.removeEmployee(firstName, lastName);
+        return removeEmployee;
     }
     @GetMapping("/find")
-    public boolean findEmployee(@RequestParam("firstName") String firstName,
+    public Employee findEmployee(@RequestParam("firstName") String firstName,
                                 @RequestParam("lastName") String lastName){
-        return employeeService.findEmployee(firstName, lastName);
+        Employee foundEmployee = employeeService.findEmployee(firstName, lastName);
+        return foundEmployee;
     }
     @GetMapping(path = "/get/employee-list")
-    public Set<String> getEmployeeList() {
+    public HashMap<Integer,Employee> getEmployeeList() {
         return employeeService.getEmployeeList();
     }
 

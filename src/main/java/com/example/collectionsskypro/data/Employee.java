@@ -37,7 +37,7 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName);
+        return Math.abs(Objects.hash(firstName, lastName));
     }
 
     @Override
