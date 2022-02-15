@@ -23,7 +23,7 @@ public class EmployeeServiceCollectImpl implements EmployeeService {
 
 
         Employee employee = new Employee(StringUtils.capitalize(firstName), StringUtils.capitalize(lastName));
-        String key = firstName + lastName;
+        String key = StringUtils.upperCase(firstName+lastName);
         if (employees.containsKey(key) || !StringUtils.isAlpha(key)){
             throw new EmployeeExistsException("This employee already exists or name does not correct");
         }
@@ -35,7 +35,7 @@ public class EmployeeServiceCollectImpl implements EmployeeService {
 
     @Override
     public Employee removeEmployee(String firstName, String lastName) {
-        String key = firstName + lastName;
+        String key = StringUtils.upperCase(firstName+lastName);
         if (!employees.containsKey(key))  {
             throw new EmployeeExistsException("This employee can't be found.");
         }
@@ -44,7 +44,7 @@ public class EmployeeServiceCollectImpl implements EmployeeService {
 
     @Override
     public Employee findEmployee(String firstName, String lastName) {
-        String key = firstName + lastName;
+        String key = StringUtils.upperCase(firstName+lastName);
         if (!employees.containsKey(key)) {
             throw new EmployeeNotFoundException("This employee cant be found.");
         }
@@ -53,7 +53,7 @@ public class EmployeeServiceCollectImpl implements EmployeeService {
     }
 
     private void employeeCheck(String firstName, String lastName) throws MyException {
-        String key = firstName + lastName;
+        String key = StringUtils.upperCase(firstName+lastName);
         if (employees.containsKey(key)) {
             throw new MyException("This employee already exists.");
         }
