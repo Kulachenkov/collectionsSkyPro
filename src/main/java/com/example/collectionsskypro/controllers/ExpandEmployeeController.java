@@ -30,8 +30,8 @@ public class ExpandEmployeeController {
         return expandEmployeeService.minSalary(groupNumber);
     }
     @GetMapping(path = "/all", params = {"departmentId"})
-    public Collection<Employee> employeeList(@RequestParam("departmentId") int groupNumber) {
-        return expandEmployeeService.employeeList(groupNumber);
+    public Collection<Employee> employeeListByGroupNumber(@RequestParam("departmentId") int groupNumber) {
+        return expandEmployeeService.employeeListByGroupNumber(groupNumber);
     }
     @GetMapping(path = "/all")
     public Map<Integer, List<Employee>> employeeFullList() {

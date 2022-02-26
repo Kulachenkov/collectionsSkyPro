@@ -12,7 +12,7 @@ public interface ExpandEmployeeService {
 
     Employee minSalary(int groupNumber);
 
-    Collection<Employee> employeeList(int groupNumber);
+    Collection<Employee> employeeListByGroupNumber(int groupNumber);
 
     Map<Integer, List<Employee>> employeeList();
 

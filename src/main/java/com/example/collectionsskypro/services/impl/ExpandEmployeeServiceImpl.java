@@ -35,7 +35,7 @@ public class ExpandEmployeeServiceImpl implements ExpandEmployeeService {
     }
 
     @Override
-    public Collection<Employee> employeeList(int groupNumber) {
+    public Collection<Employee> employeeListByGroupNumber(int groupNumber) {
         return employees.getEmployeeList().stream()
                 .filter(employee -> employee.getGroupNumber() == groupNumber)
                 .collect(Collectors.toList());

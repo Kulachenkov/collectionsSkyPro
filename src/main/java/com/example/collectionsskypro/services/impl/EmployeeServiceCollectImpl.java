@@ -16,28 +16,24 @@ import java.util.Map;
 @Service
 public class EmployeeServiceCollectImpl implements EmployeeService {
 
-    private Map<String, Employee> employees = new HashMap<>();
+    private final Map<String, Employee> employees = new HashMap<>();
 
     @Override
     public Employee addEmployee(String firstName, String lastName)  {
-
-
         Employee employee = new Employee(StringUtils.capitalize(firstName), StringUtils.capitalize(lastName));
         String key = StringUtils.upperCase(firstName+lastName);
         if (employees.containsKey(key) || !StringUtils.isAlpha(key)){
             throw new EmployeeExistsException("This employee already exists or name does not correct");
         }
             employees.put(key, employee);
-
         return employee;
-
     }
 
     @Override
     public Employee removeEmployee(String firstName, String lastName) {
         String key = StringUtils.upperCase(firstName+lastName);
         if (!employees.containsKey(key))  {
-            throw new EmployeeExistsException("This employee can't be found.");
+            throw new EmployeeNotFoundException("This employee can't be found.");
         }
         return employees.remove(key);
     }
@@ -51,6 +47,7 @@ public class EmployeeServiceCollectImpl implements EmployeeService {
             return employees.get(key);
 
     }
+
 
     private void employeeCheck(String firstName, String lastName) throws MyException {
         String key = StringUtils.upperCase(firstName+lastName);
