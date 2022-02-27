@@ -23,32 +23,35 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public String greetEmployee(){
+    public String greetEmployee() {
         return "Welcome to the project!";
     }
+
     @GetMapping("/add")
     public Employee addEmployee(@RequestParam("firstName") String firstName,
-                                @RequestParam("lastName") String lastName){
+                                @RequestParam("lastName") String lastName) {
         Employee addEmployee = employeeService.addEmployee(firstName, lastName);
         return addEmployee;
     }
+
     @GetMapping("/remove")
     public Employee removeEmployee(@RequestParam("firstName") String firstName,
-                                  @RequestParam("lastName") String lastName){
+                                   @RequestParam("lastName") String lastName) {
         Employee removeEmployee = employeeService.removeEmployee(firstName, lastName);
         return removeEmployee;
     }
+
     @GetMapping("/find")
     public Employee findEmployee(@RequestParam("firstName") String firstName,
-                                @RequestParam("lastName") String lastName){
+                                 @RequestParam("lastName") String lastName) {
         Employee foundEmployee = employeeService.findEmployee(firstName, lastName);
         return foundEmployee;
     }
+
     @GetMapping(path = "/get/employee-list")
     public Collection<Employee> getEmployeeList() {
         return employeeService.getEmployeeList();
     }
-
 
 
 }
