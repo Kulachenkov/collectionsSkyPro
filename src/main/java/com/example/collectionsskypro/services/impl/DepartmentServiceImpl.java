@@ -2,19 +2,19 @@ package com.example.collectionsskypro.services.impl;
 
 import com.example.collectionsskypro.data.Employee;
 import com.example.collectionsskypro.exceptions.EmployeeNotFoundException;
-import com.example.collectionsskypro.services.ExpandEmployeeService;
+import com.example.collectionsskypro.services.DepartmentService;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class ExpandEmployeeServiceImpl implements ExpandEmployeeService {
+public class DepartmentServiceImpl implements DepartmentService {
 
 
     private final EmployeeServiceCollectImpl employees;
 
-    public ExpandEmployeeServiceImpl(EmployeeServiceCollectImpl employees) {
+    public DepartmentServiceImpl(EmployeeServiceCollectImpl employees) {
         this.employees = employees;
     }
 

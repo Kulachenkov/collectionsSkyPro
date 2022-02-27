@@ -2,7 +2,7 @@ package com.example.collectionsskypro.services;
 
 import com.example.collectionsskypro.exceptions.EmployeeNotFoundException;
 import com.example.collectionsskypro.services.impl.EmployeeServiceCollectImpl;
-import com.example.collectionsskypro.services.impl.ExpandEmployeeServiceImpl;
+import com.example.collectionsskypro.services.impl.DepartmentServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,13 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class ExpandEmployeeServiceIMPLTest {
+public class DepartmentServiceTest {
 
     @Mock
     private EmployeeServiceCollectImpl employeeService;
 
     @InjectMocks
-    private ExpandEmployeeServiceImpl out;
+    private DepartmentServiceImpl out;
 
     @Test
     public void shouldFindEmployeeWithMaxSalaryById() {
